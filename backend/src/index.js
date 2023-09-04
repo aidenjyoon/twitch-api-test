@@ -53,7 +53,7 @@ const getDataByName = async (userName) => {
   const accessToken = await getAccessToken();
 
   const response = await axios.get(
-    `https://api.twitch.tv/helix/streams?user_login=${userName}`,
+    `https://api.twitch.tv/helix/users?login=${userName}`,
     {
       headers: {
         "Client-ID": `${process.env.TWITCH_CLIENT_ID}`,
@@ -67,7 +67,7 @@ const getDataByName = async (userName) => {
 
 const valRes = await getValidation();
 const userName = await getUserNameById();
-const data = await getDataByName("aylpha");
+const data = await getDataByName("yane1004");
 
 await getAccessToken()
   .then((accessToken) => {
