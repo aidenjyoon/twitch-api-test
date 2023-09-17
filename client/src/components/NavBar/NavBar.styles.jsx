@@ -11,16 +11,14 @@ export const NavBarContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const NavLinks = styled.div``;
-
 // split navbar into 3 parts
-export const LogoContainer = styled(NavLinks)`
+export const LogoContainer = styled.div`
   height: 100%;
   display: flex;
   background-color: transparent;
 `;
 
-export const MenuContainer = styled(NavLinks)`
+export const NavLinksContainer = styled.div`
   margin: 12px;
   height: 100%;
   display: flex;
