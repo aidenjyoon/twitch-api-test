@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { createAction } from "../utils/reducer.util";
 
 export const MenuContext = createContext({
   isMenuOpen: false,
@@ -11,12 +12,31 @@ export const MENU_ACTION_TYPES = {
 
 const INTITAL_STATE = {
   isCartOpen: false,
-  cartItems: [],
-  totalNumberItems: 0,
-  totalPrice: 0,
+};
+
+const menuReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case MENU_ACTION_TYPES.SET_IS_MENU_OPEN:
+      return {
+        ...state,
+        isMenuOpen: payload,
+      };
+
+    default:
+      throw new Error(`unhandled type of ${type} in menuReducer`);
+  }
 };
 
 export const MenuProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(menuReducer, INTITAL_STATE);
+  const { isMenuOpen } = state;
+
+  const setIsMenuOpen = (menuOpenBool) => {
+    dispatch(createAction(MENU_ACTION_TYPES.SET_IS_MENU_OPEN, menuOpenBool));
+  };
+
   const value = {
     isMenuOpen,
     setIsMenuOpen,
