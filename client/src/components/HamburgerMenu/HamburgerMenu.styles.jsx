@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Hamburger = styled.div`
   display: flex;
+  cursor: pointer;
 
   .hamburger {
     .line {

@@ -1,30 +1,32 @@
 import { Hamburger, SVGRect } from "./HamburgerMenu.styles";
 
 import { MenuContext } from "../../context/menu.context";
-import MenuItems from "../MenuItems/MenuItems.context";
+
+import { useContext } from "react";
 
 const HamburgerMenu = () => {
-  const { isMenuOpen } = useContext(MenuContext);
+  const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
 
-  const HamburgerHandler = (e) => {
-    console.log("clicking hamburger");
+  const HamburgerHandler = () => {
+    // toggle menu
+    setIsMenuOpen(!isMenuOpen);
+    console.log(isMenuOpen);
   };
 
   return (
     <>
       <Hamburger
-        id="navbar__hamburgerMenu"
-        onClick={HamburgerHandler()}
+        id="navbar__hamburgerContainer"
+        onClick={HamburgerHandler}
         aria-controls="primary-navigation"
         aria-expanded="false"
       >
         <svg className="hamburger" viewBox="0 0 100 100" width="40">
-          <SVGRect $position="top" className="line top"></SVGRect>
-          <SVGRect $position="middle" className="line middle"></SVGRect>
-          <SVGRect $position="bottom" className="line bottom"></SVGRect>
+          <SVGRect $position="top" className="line top" />
+          <SVGRect $position="middle" className="line middle" />
+          <SVGRect $position="bottom" className="line bottom" />
         </svg>
       </Hamburger>
-      {isMenuOpen && <MenuItems />}
     </>
   );
 };
