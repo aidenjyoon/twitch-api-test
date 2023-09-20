@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <>
       <NavBarContainer>
-        <LogoContainer id="navbar__logoC">
+        <LogoContainer to="/" id="navbar__logoC">
           <Logo width={50} height={50} />
         </LogoContainer>
         <NavLinksContainer className="menu">

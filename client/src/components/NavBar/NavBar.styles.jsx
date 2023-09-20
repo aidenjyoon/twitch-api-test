@@ -12,7 +12,7 @@ export const NavBarContainer = styled.div`
 `;
 
 // split navbar into 3 parts
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
   height: 100%;
   display: flex;
   background-color: transparent;
