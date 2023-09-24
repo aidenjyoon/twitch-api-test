@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 import { createAction } from "../utils/reducer.util";
 
 export const MenuContext = createContext({
-  isMenuOpen: false,
+  isMenuOpen: true,
   setIsMenuOpen: () => null,
 });
 
@@ -11,10 +11,12 @@ export const MENU_ACTION_TYPES = {
 };
 
 const INTITAL_STATE = {
-  isCartOpen: false,
+  isMenuOpen: true,
 };
 
 const menuReducer = (state, action) => {
+  console.log("dispatched");
+  console.log("action:", action);
   const { type, payload } = action;
 
   switch (type) {
@@ -25,7 +27,7 @@ const menuReducer = (state, action) => {
       };
 
     default:
-      throw new Error(`unhandled type of ${type} in menuReducer`);
+      throw new Error(`Unhandled type ${type} in menuReducer`);
   }
 };
 

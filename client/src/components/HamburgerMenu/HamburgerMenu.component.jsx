@@ -7,17 +7,18 @@ import { useContext } from "react";
 const HamburgerMenu = () => {
   const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
 
-  const HamburgerHandler = () => {
+  const HamburgerToggle = () => {
     // toggle menu
+    console.log("before clicked: ", isMenuOpen, !isMenuOpen);
     setIsMenuOpen(!isMenuOpen);
-    console.log(isMenuOpen);
+    console.log("after clicked: ", isMenuOpen);
   };
 
   return (
     <>
       <Hamburger
         id="navbar__hamburgerContainer"
-        onClick={HamburgerHandler}
+        onClick={HamburgerToggle}
         aria-controls="primary-navigation"
         aria-expanded="false"
       >
