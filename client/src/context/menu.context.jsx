@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 import { createAction } from "../utils/reducer.util";
 
 export const MenuContext = createContext({
-  isMenuOpen: true,
+  isMenuOpen: false,
   setIsMenuOpen: () => null,
 });
 
@@ -11,7 +11,7 @@ export const MENU_ACTION_TYPES = {
 };
 
 const INTITAL_STATE = {
-  isMenuOpen: true,
+  isMenuOpen: false,
 };
 
 const menuReducer = (state, action) => {
@@ -33,6 +33,7 @@ const menuReducer = (state, action) => {
 
 export const MenuProvider = ({ children }) => {
   const [state, dispatch] = useReducer(menuReducer, INTITAL_STATE);
+
   const { isMenuOpen } = state;
 
   const setIsMenuOpen = (menuOpenBool) => {

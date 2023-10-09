@@ -4,6 +4,7 @@ const MenuItems = () => {
   return (
     <>
       <MenuContainer>
+        {/* create a button to close */}
         <ul>
           <li>Search</li>
           <li>Channels</li>
